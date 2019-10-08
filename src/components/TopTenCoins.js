@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-const TopTenCoins = ({ coinData }) => {
+const TopTenCoins = ({ topTenCoins }) => {
   return (
     <div className='charts-container'>
       <div className="charts">
-        {coinData.map(coin => (
+        {topTenCoins.map(coin => (
           <div className="chart__container" key={coin.name}>
             <h2 className="coin__title">{coin.name}</h2>
             <h4 className="coin__symbol">{coin.symbol}</h4>
