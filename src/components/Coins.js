@@ -19,18 +19,21 @@ const Coins = (props) => {
 
     useEffect(() => {
         getCoins();
+        getCoinById();
     }, [])
 
 console.log(props)
-    // const getCoinById = (props) => {
-    //     // id = match.parms.id;
-    //     axios.get(`https://api.coinpaprika.com/v1/coins/${props.match.id}`)
-    //     .then(res => {
-    //         console.log(res.data)
-    //         setCoins(res.data)
-    //     })
-    //     .catch(err => console.log(err.response))
-    // }
+
+    const { match } = props;
+    const getCoinById = () => {
+        // id = match.parms.id;
+        axios.get(`https://api.coinpaprika.com/v1/coins/${match.params.id}`)
+        .then(res => {
+            console.log(res.data)
+            // setCoins(res.data)
+        })
+        .catch(err => console.log(err.response))
+    }
 
     return (
         <div className='coin-container'>
