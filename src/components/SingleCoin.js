@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import {Card, Tabs, Button } from 'antd';
-import { List, Avatar, Icon } from 'antd';
-import { Tag } from 'antd';
+import { List, Icon } from 'antd';
 
 const { TabPane } = Tabs;
 
@@ -32,7 +31,6 @@ const SingleCoin = ({ match }) => {
                 <List
                 itemLayout="vertical"
                 size="large"
-                // dataSource={coin}
                 >
                     <List.Item
                         actions={[
@@ -40,13 +38,6 @@ const SingleCoin = ({ match }) => {
                         <IconText type="like-o" text="0" key="list-vertical-like-o" />,
                         <IconText type="message" text="0" key="list-vertical-message" />,
                         ]}
-                        // extra={
-                        // <img
-                        //     width={272}
-                        //     alt="logo"
-                        //     src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-                        // />
-                        // }
                     >
                     <List.Item.Meta
                     title={coin.name}
@@ -57,28 +48,20 @@ const SingleCoin = ({ match }) => {
             </Card>
 
             <Card>
-            {/* <h1>{coin.name} {coin.symbol}</h1>
-            <h2>{coin.description}</h2>
-            <br /> */}
             <Tabs tabBarExtraContent={operations}>
                 <TabPane tab="Coin Info" key="1">
                     <Card>
-                    <List
-                        itemLayout="vertical"
-                    >
-                        <List.Item>
-                            <h2>{`Type: ${coin.type}`}</h2>
-                            <h2>{`Origanization Structure: ${coin.org_structure}`}</h2>
-                            <h2>{`Proof Type: ${coin.proof_type}`}</h2>
-                            <h2>{`Development Status: ${coin.development_status}`}</h2>
-                            <h2>{`Started in: ${parseInt(coin.started_at)}`}</h2>
-                        </List.Item>
-                    </List>
-                    {/* <Tag color="blue">{`Type: ${coin.type}`}</Tag>
-                        <Tag color='blue'>{`Origanization Structure: ${coin.org_structure}`}</Tag>
-                        <Tag color='blue'>{`Proof Type: ${coin.proof_type}`}</Tag>
-                        <Tag color='blue'>{`Development Status: ${coin.development_status}`}</Tag>
-                        <Tag color='blue'>{`Started in: ${parseInt(coin.started_at)}`}</Tag> */}
+                        <List
+                            itemLayout="vertical"
+                        >
+                            <List.Item>
+                                <h2>{`Type: ${coin.type}`}</h2>
+                                <h2>{`Origanization Structure: ${coin.org_structure}`}</h2>
+                                <h2>{`Proof Type: ${coin.proof_type}`}</h2>
+                                <h2>{`Development Status: ${coin.development_status}`}</h2>
+                                <h2>{`Started in: ${parseInt(coin.started_at)}`}</h2>
+                            </List.Item>
+                        </List>
                     </Card>
                 </TabPane>
                 <TabPane tab="Tab 2" key="2">
