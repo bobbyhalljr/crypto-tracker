@@ -77,5 +77,4 @@ const SingleCoin = ({ match }) => {
         </div>
     )
 }
-
 export default SingleCoin;
