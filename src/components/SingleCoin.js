@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { NavLink } from 'react-router-dom';
 
 import {Card, Tabs, Button } from 'antd';
 import { List, Icon } from 'antd';
@@ -48,7 +49,7 @@ const SingleCoin = ({ match }) => {
             </Card>
 
             <Card>
-            <Tabs tabBarExtraContent={operations}>
+            <Tabs >
                 <TabPane tab="Coin Info" key="1">
                     <Card>
                         <List
@@ -60,6 +61,7 @@ const SingleCoin = ({ match }) => {
                                 <h2>{`Proof Type: ${coin.proof_type}`}</h2>
                                 <h2>{`Development Status: ${coin.development_status}`}</h2>
                                 <h2>{`Started in: ${parseInt(coin.started_at)}`}</h2>
+                                <NavLink to='#'>{operations}</NavLink>
                             </List.Item>
                         </List>
                     </Card>
