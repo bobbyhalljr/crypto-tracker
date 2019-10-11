@@ -228,9 +228,9 @@ img {
   align-items: center;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  margin: 50px 0 0;
-  width: 100%;
+  // justify-content: center;
+  margin: 50px auto;
+  max-width: 90%;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12),
   0 1px 2px rgba(0,0,0,0.24);
   border-radius: 10px;
@@ -245,25 +245,43 @@ img {
   margin-bottom: 16px;
 }
 
-.coin__title {
-  display: block;
-  margin-left: 8px;
-  min-width: 160px;
-  text-align: left;
+.title {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 10px;
 }
 
+.price {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+// .coin__title {
+//   // display: block;
+//   // margin: 0 10px 0 5px;
+//   // min-width: 160px;
+//   // text-align: left;
+//   margin-right: 100px;
+// }
+
 .coin__symbol {
-  display: block;
-  margin-bottom: 10px;
-  margin-right: 30px;
+  // display: block;
+  // margin: 0 5px 0 15px;
+  padding: 0 30px;
 }
 
 .coin__logo {
   width: 50px;
+  margin-right: 15px;
 }
 
 .coin__current-price {
-  padding: 0 15px;
+  min-width: 20%;
+  margin: 0 15px;
 }
 
 .coin__price-negitive {
@@ -286,6 +304,11 @@ img {
     h1 {
       color: #fff;
     }
+  }
+
+  .coin__list {
+    background: #1F2022;
+    color: #f1f1f1;
   }
 
   .chart__container {
@@ -356,4 +379,14 @@ img {
 
 .btn {
   margin: 30px;
+}
+
+.icon {
+  color: pink;
+}
+
+.desc {
+  letter-spacing: 0.1rem;
+  line-height: 3rem;
+  text-align: center;
 }

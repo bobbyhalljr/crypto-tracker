@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 import {Card, Tabs, Button } from 'antd';
 import { List, Icon } from 'antd';
+import { FaRegStar, FaRegThumbsUp, FaRegComment } from 'react-icons/fa';
 
 const { TabPane } = Tabs;
 
@@ -21,7 +22,7 @@ const SingleCoin = ({ match }) => {
 
     const IconText = ({ type, text }) => (
         <span>
-          <Icon type={type} style={{ marginRight: 8 }} />
+          <Icon type={type} style={{ marginRight: 8, fontSize: 24 }} />
           {text}
         </span>
       );
@@ -35,15 +36,20 @@ const SingleCoin = ({ match }) => {
                 >
                     <List.Item
                         actions={[
-                        <IconText type="star-o" text="0" key="list-vertical-star-o" />,
-                        <IconText type="like-o" text="0" key="list-vertical-like-o" />,
-                        <IconText type="message" text="0" key="list-vertical-message" />,
+                        <IconText size='large' type="star-o" text="0" key="list-vertical-star-o" />,
+                        <IconText size='large' type="like-o" text="0" key="list-vertical-like-o" />,
+                        <IconText size='large' type="message" text="0" key="list-vertical-message" />,
                         ]}
                     >
                     <List.Item.Meta
-                    title={coin.name}
-                    description={coin.description}
+                    title={(<h1>{coin.name}</h1>)}
+                    description={(<h2 className='desc'>{coin.description}</h2>)}
                     />
+                    {/* <div>
+                        <FaRegStar />
+                        <FaRegThumbsUp />
+                        < FaRegComment />
+                    </div> */}
                     </List.Item>
                 </List>
             </Card>
