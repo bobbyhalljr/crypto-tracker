@@ -5,35 +5,16 @@ import { PageHeader, Tag, Button, Statistic, Descriptions, Row } from 'antd';
 
 import SingleCoin from '../components/SingleCoin';
 
-const Coins = (props) => {
-    const [coins, setCoins] = useState([])
-
-    const getCoins = () => {
-        axios.get('https://api.coinpaprika.com/v1/tickers')
-        .then(res => {
-            console.log(res.data)
-            setCoins(res.data)
-        })
-        .catch(err => console.log(err.response))
-    }
-
-    useEffect(() => {
-        getCoins();
-        getCoinById();
-    }, [])
-
-console.log(props)
-
-    const { match } = props;
-    const getCoinById = () => {
-        // id = match.parms.id;
-        axios.get(`https://api.coinpaprika.com/v1/coins/${match.params.id}`)
-        .then(res => {
-            console.log(res.data)
-            // setCoins(res.data)
-        })
-        .catch(err => console.log(err.response))
-    }
+const Coins = ({ coins }) => {
+    // const getCoinById = (props) => {
+    //     // id = match.parms.id;
+    //     axios.get(`https://api.coinpaprika.com/v1/coins/${props.match.id}`)
+    //     .then(res => {
+    //         console.log(res.data)
+    //         setCoins(res.data)
+    //     })
+    //     .catch(err => console.log(err.response))
+    // }
 
     return (
         <div className='coin-container'>
@@ -61,10 +42,10 @@ console.log(props)
                     </PageHeader>
                 )
             })}
-
-            <Route path='/coins/:id' render={props => <SingleCoin {...props} />} />
         </div>
     )
 }
 
 export default Coins;
+
+// fvbhbdvf
