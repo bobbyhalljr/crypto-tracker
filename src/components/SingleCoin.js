@@ -8,7 +8,10 @@ import { List, Icon, Table } from 'antd';
 const { TabPane } = Tabs;
 
 const SingleCoin = ({ match }) => {
-    const [coin, setCoin] = useState({})
+    const [coin, setCoin] = useState({
+      team: [],
+      whitepaper: {}
+    })
 
     axios.get(`https://api.coinpaprika.com/v1/coins/${match.params.id}`)
     .then(res => {
@@ -25,15 +28,6 @@ const SingleCoin = ({ match }) => {
           {text}
         </span>
       );
-
-        // description: "Ethereum is a decentralized platform for applications. Applications build on it can use smart contracts - computer algorithms which execute themselves when data is supplied to the platform. There is no need for any human operators."
-        // development_status: "Working product"
-        // first_data_at: "2015-08-07T00:00:00Z"
-        // hardware_wallet: true
-        // hash_algorithm: "Ethash"
-        // id: "eth-ethereum"
-        // is_active: true
-        // is_new: false
 
         const columns = [
             {
@@ -92,11 +86,22 @@ const SingleCoin = ({ match }) => {
                     <Table columns={columns} dataSource={data} size="medium" />
                 </div>
                 </TabPane>
-                <TabPane tab="Tab 2" key="2">
-                Content of tab 2
+                <TabPane tab="Team" key="2">
+                <h1>{`The ${coin.name} Team`}</h1>
+                <br />
+                <ul>
+                  {coin.team.map(team => {
+                    return (
+                      <div>
+                        <h2>{team.name}, {team.position}</h2>
+                      </div>
+                    )
+                  })}
+                </ul>
                 </TabPane>
-                <TabPane tab="Tab 3" key="3">
-                Content of tab 3
+                <TabPane tab="White Paper" key="3">
+                  <h1>{`White Paper for ${coin.name}`}</h1>
+                  <h2><a href={coin.whitepaper.link}>White Paper</a></h2>
                 </TabPane>
             </Tabs>
             </Card>
