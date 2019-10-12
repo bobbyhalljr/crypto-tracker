@@ -3,8 +3,7 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 
 import {Card, Tabs, Button } from 'antd';
-import { List, Icon } from 'antd';
-import { FaRegStar, FaRegThumbsUp, FaRegComment } from 'react-icons/fa';
+import { List, Icon, Table } from 'antd';
 
 const { TabPane } = Tabs;
 
@@ -27,6 +26,43 @@ const SingleCoin = ({ match }) => {
         </span>
       );
 
+        // description: "Ethereum is a decentralized platform for applications. Applications build on it can use smart contracts - computer algorithms which execute themselves when data is supplied to the platform. There is no need for any human operators."
+        // development_status: "Working product"
+        // first_data_at: "2015-08-07T00:00:00Z"
+        // hardware_wallet: true
+        // hash_algorithm: "Ethash"
+        // id: "eth-ethereum"
+        // is_active: true
+        // is_new: false
+
+        const columns = [
+            {
+              title: 'Hash Algorithm',
+              dataIndex: 'hash_algorithm',
+            },
+            {
+                title: 'Proof Type',
+                dataIndex: 'proof_type',
+              },
+              {
+                title: 'Org Structure',
+                dataIndex: 'org_structure',
+              },
+              {
+                title: 'Started At',
+                dataIndex: 'started_at',
+              },
+          ];
+          const data = [
+            {
+              key: '1',
+              hash_algorithm: `${coin.hash_algorithm}`,
+              proof_type: `${coin.proof_type}`,
+              org_structure: `${coin.org_structure}`,
+              started_at: `${parseInt(coin.started_at)}`
+            },
+          ];
+
     return (
         <div>
             <Card>
@@ -45,32 +81,16 @@ const SingleCoin = ({ match }) => {
                     title={(<h1>{coin.name}</h1>)}
                     description={(<h2 className='desc'>{coin.description}</h2>)}
                     />
-                    {/* <div>
-                        <FaRegStar />
-                        <FaRegThumbsUp />
-                        < FaRegComment />
-                    </div> */}
                     </List.Item>
                 </List>
             </Card>
 
             <Card>
-            <Tabs >
+            <Tabs animated={false} >
                 <TabPane tab="Coin Info" key="1">
-                    <Card>
-                        <List
-                            itemLayout="vertical"
-                        >
-                            <List.Item>
-                                <h2>{`Type: ${coin.type}`}</h2>
-                                <h2>{`Origanization Structure: ${coin.org_structure}`}</h2>
-                                <h2>{`Proof Type: ${coin.proof_type}`}</h2>
-                                <h2>{`Development Status: ${coin.development_status}`}</h2>
-                                <h2>{`Started in: ${parseInt(coin.started_at)}`}</h2>
-                                <NavLink to='#'>{operations}</NavLink>
-                            </List.Item>
-                        </List>
-                    </Card>
+                <div>
+                    <Table columns={columns} dataSource={data} size="medium" />
+                </div>
                 </TabPane>
                 <TabPane tab="Tab 2" key="2">
                 Content of tab 2
