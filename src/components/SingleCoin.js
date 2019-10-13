@@ -7,7 +7,8 @@ import {Card, Tabs, Button, List, Icon, Table } from 'antd';
 
 const { TabPane } = Tabs;
 
-const SingleCoin = ({ match }, props) => {
+const SingleCoin = ({ match, history }) => {
+    const [loading, setLoading] = useState(false)
     const [coin, setCoin] = useState({
       team: [],
       whitepaper: {}
@@ -57,15 +58,11 @@ const SingleCoin = ({ match }, props) => {
             },
           ];
 
-          // const backToCoins = () => {
-          //   props.history.go('/coins')
-          // }
-
     return (
         <div>
             <Card>
             <div>
-              <button>Back To Coins</button>
+              <button onClick={() => history.goBack('/coins')}>Back To Coins</button>
             </div>
                 <List
                 itemLayout="vertical"
