@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 
-import {Card, Tabs, Button } from 'antd';
-import { List, Icon, Table } from 'antd';
+import {Card, Tabs, Button, List, Icon, Table } from 'antd';
+// import { List, Icon, Table } from 'antd';
 
 const { TabPane } = Tabs;
 
-const SingleCoin = ({ match }) => {
+const SingleCoin = ({ match }, props) => {
     const [coin, setCoin] = useState({
       team: [],
       whitepaper: {}
@@ -57,23 +57,30 @@ const SingleCoin = ({ match }) => {
             },
           ];
 
+          // const backToCoins = () => {
+          //   props.history.go('/coins')
+          // }
+
     return (
         <div>
             <Card>
+            <div>
+              <button>Back To Coins</button>
+            </div>
                 <List
                 itemLayout="vertical"
                 size="large"
                 >
                     <List.Item
                         actions={[
-                        <IconText size='large' type="star-o" text="0" key="list-vertical-star-o" />,
+                        <IconText size='large' type="star-o" text="Favorite" key="list-vertical-star-o" />,
                         <IconText size='large' type="like-o" text="0" key="list-vertical-like-o" />,
                         <IconText size='large' type="message" text="0" key="list-vertical-message" />,
                         ]}
                     >
                     <List.Item.Meta
-                    title={(<h1>{coin.name}</h1>)}
-                    description={(<h2 className='desc'>{coin.description}</h2>)}
+                      title={(<h1>{coin.name}</h1>)}
+                      description={(<h2 className='desc'>{coin.description}</h2>)}
                     />
                     </List.Item>
                 </List>
