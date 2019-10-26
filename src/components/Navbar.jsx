@@ -21,10 +21,10 @@ const Navbar = () => {
       </div>
     </nav>
     <div className='links'>
-        <NavLink className='link' to='/'>Home</NavLink>  
+        {/* <NavLink className='link' to='/'>Home</NavLink>   */}
         <NavLink className='link' to='/top10'>Top 10 Coins</NavLink>  
         <NavLink className='link' to='/coins'>Coins</NavLink>  
-        <NavLink className='link' to='/about'>About</NavLink>  
+        {/* <NavLink className='link' to='/about'>About</NavLink>   */}
       </div>
   </>
   );
