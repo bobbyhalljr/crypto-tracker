@@ -11,7 +11,10 @@ const SingleCoin = ({ match, history }) => {
     const [loading, setLoading] = useState(false)
     const [coin, setCoin] = useState({
       team: [],
-      whitepaper: {}
+      whitepaper: {},
+      links: {
+        website: []
+      }
     })
 
     axios.get(`https://api.coinpaprika.com/v1/coins/${match.params.id}`)
@@ -86,6 +89,7 @@ const SingleCoin = ({ match, history }) => {
             <Card>
             <Tabs animated={false} >
                 <TabPane tab="Coin Info" key="1">
+                <h1>{`${coin.name} Info`}</h1>
                 <div>
                     <Table columns={columns} dataSource={data} size="medium" />
                 </div>
@@ -97,14 +101,21 @@ const SingleCoin = ({ match, history }) => {
                   {coin.team.map(team => {
                     return (
                       <div>
-                        <h2>{team.name}, {team.position}</h2>
+                        <h2 key={team.name}>{team.name}, {team.position}</h2>
                       </div>
                     )
                   })}
                 </ul>
                 </TabPane>
-                <TabPane tab="White Paper" key="3">
-                  <h1>{`White Paper for ${coin.name}`}</h1>
+                <TabPane tab="Website" key="3">
+                  <h1>{`Website / White paper for ${coin.name}`}</h1>
+                  <h2>{coin.links.website.map(web => {
+                    return (
+                      <div>
+                        <a href={`${web}`}>Website</a>
+                      </div>
+                    )
+                  })}</h2>
                   <h2><a href={coin.whitepaper.link}>White Paper</a></h2>
                 </TabPane>
             </Tabs>

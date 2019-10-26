@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { PageHeader, Tag, Button, Statistic, Row, Skeleton, Input } from 'antd';
 
 import SearchBar from '../components/SeachBar';
 
 const Coins = ({ coins }) => {
-
     return (
         <>
         <SearchBar coin={coins} />
