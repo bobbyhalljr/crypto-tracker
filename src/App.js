@@ -44,11 +44,11 @@ const App = () => {
             <Navbar topTenCoins={topTenCoins} />
             {/* <Charts coinData={coinData} /> */}
 
-            <Route exact path='/' component={Home} />
-            <Route path='/top10' render={props => <TopTenCoins topTenCoins={topTenCoins} />}/>
+            {/* <Route exact path='/' component={Home} /> */}
+            <Route exact path='/' render={props => <TopTenCoins topTenCoins={topTenCoins} />}/>
             <Route exact path='/coins' render={props => <Coins {...props} coins={coins} setCoins={setCoins} />} />
-            <Route path='/coins/:id' render={props => <SingleCoin {...props} coins={coins} setCoins={setCoins} />} />
-            <Route path='/about' component={About} />
+            <Route exact path='/coins/:id' render={props => <SingleCoin {...props} coins={coins} setCoins={setCoins} />} />
+            {/* <Route path='/about' component={About} /> */}
         </div>
     );
   };

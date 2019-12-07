@@ -7,6 +7,8 @@ import {Card, Tabs, Button, List, Icon, Table } from 'antd';
 
 const { TabPane } = Tabs;
 
+const favCoins = [];
+
 const SingleCoin = ({ match, history }) => {
     const [loading, setLoading] = useState(false)
     const [coin, setCoin] = useState({
@@ -16,6 +18,11 @@ const SingleCoin = ({ match, history }) => {
         website: []
       }
     })
+
+    const addFavCoin = () => {
+      favCoins.push(coin.id, coin.name)
+      return alert(favCoins);
+    }
 
     axios.get(`https://api.coinpaprika.com/v1/coins/${match.params.id}`)
     .then(res => {
@@ -64,9 +71,9 @@ const SingleCoin = ({ match, history }) => {
     return (
         <div>
             <Card>
-            <div>
-              <button onClick={() => history.goBack('/coins')}>Back To Coins</button>
-            </div>
+              <div>
+                <button onClick={() => history.goBack('/coins')}>Back To Coins</button>
+              </div>
                 <List
                 itemLayout="vertical"
                 size="large"
