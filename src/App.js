@@ -28,7 +28,7 @@ const App = () => {
     const getCoins = () => {
       axios.get('https://api.coinpaprika.com/v1/tickers')
       .then(res => {
-          console.log(res.data)
+          console.log(res)
           setCoins(res.data)
       })
       .catch(err => console.log(err.response))
